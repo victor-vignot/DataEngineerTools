@@ -88,3 +88,15 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# --- Ajouts du cours (2Scrapy) ---
+# Les items passent par le TextPipeline (nettoyage du titre et de la description)
+ITEM_PIPELINES = {
+    "newscrawler.pipelines.TextPipeline": 300,
+}
+# On reste poli avec le site : 1 seconde entre deux requêtes
+DOWNLOAD_DELAY = 1
+# Accents lisibles dans les exports JSON
+FEED_EXPORT_ENCODING = "utf-8"
+# Version recommandée du calcul d'empreinte des requêtes (évite un avertissement)
+REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
